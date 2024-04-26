@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --bg-color: #0d1b2a ;
+  --font-color: #e0e1dd;
+  --task-bg-color: #1b263b;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+main {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+}
+
+#input-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+#taskInput {
+  flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: var(--font-color);
+}
+
+#taskInput:focus {
+  outline: none;
+}
+
+#taskInputBtn {
+  font-size: 2rem;
+  background-color: transparent;
+  border: 0;
+  color: #415a77;
+}
+
+#taskInputBtn:hover {
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+#tool-row {
+  background-color: var(--task-bg-color);
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color: #778da9;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+#total-left,
+#clear {
+  display: inline-block;
+}
+
+#sort {
+  display: flex;
+}
+
+#sort p {
+  margin: 0 10px;
+}
+
+#sort p:hover,
+#clear p:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  #tool-row {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  #total-left {
+    order: 2;
+  }
+
+  #sort {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #clear {
+    order: 3;
+  }
+}
+
+.task {
+  width: 100%;
+  background-color: #415a77;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.task:last-child {
+  margin-bottom: 0;
+}
+
+.task-item {
+  flex-grow: 1;
+}
+
+.delete {
+  justify-self: flex-end;
+}
+
+.delete:hover {
+  cursor:pointer;
+  color: rgb(181, 12, 12);
+}
