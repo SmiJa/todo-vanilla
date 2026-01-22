@@ -1,5 +1,9 @@
 # Basic Todo app
 
+## Tech
+- Vanilla JS
+- Crypto web API
+
 ## Description
 The Todo app is a great way for a user to keep track of their daily tasks.
 
@@ -12,4 +16,4 @@ The Todo app is a great way for a user to keep track of their daily tasks.
 ## Coming Updates
 - Refactor BuildTaskList function -- Completed
 - Update newID function with WebAPI crypto support -- Completed
-- Refactor celarCompleted function
+- Refactor celarCompleted function -- Completed
