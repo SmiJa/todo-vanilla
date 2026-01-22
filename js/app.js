@@ -17,22 +17,40 @@ function updateTasksCount() {
 }
 
 function buildTaskList(tasksArr) {
-  let HTML = ""
+  taskList.innerHTML = "";
   for (let i = 0; i < tasksArr.length; i++) {
-    HTML += `
-    <div class="task" id="${tasksArr[i].id}">
-      <span>
-        <input onclick="completeTask(this)" type="checkbox" ${tasksArr[i].completed ? "checked" : ""}>
-      </span>
-      <span class="task-item">${tasksArr[i].task}</span>
-      <span class="delete">
-        <i onclick="removeTask(this)" class="fa-solid fa-trash"></i>
-      </span>
-    </div>
-    `;
+    const taskDiv = document.createElement("div");
+    const taskCheckSpan = document.createElement("span");
+    const taskCheckBox = document.createElement("input");
+    const taskSpan = document.createElement("span");
+    const taskSpanDelete = document.createElement("span");
+    const taskDeleteIcon = document.createElement("i");
+
+    // Setting up the task wrapper
+    taskDiv.classList = "task";
+    taskDiv.id = tasksArr[i].id;
+
+    // Setting up the task checkbox
+    taskCheckBox.type = "checkbox";
+    taskCheckBox.onclick = (e) => completeTask(e.target);
+    taskCheckBox.checked = tasksArr[i].completed ? "checked" : "";
+    taskCheckSpan.appendChild(taskCheckBox);
+    taskDiv.appendChild(taskCheckSpan);
+
+    // Setting up the task text
+    taskSpan.classList = "task-item";
+    taskSpan.textContent = tasksArr[i].task;
+    taskDiv.appendChild(taskSpan);
+
+    // Setting up the remove task icon
+    taskDeleteIcon.classList = "fa-solid fa-trash";
+    taskDeleteIcon.onclick = (e) => removeTask(e.target);
+    taskSpanDelete.appendChild(taskDeleteIcon);
+    taskDiv.appendChild(taskSpanDelete);
+
+    // Add div to the taskList
+    taskList.appendChild(taskDiv);
   }
-  
-  return taskList.innerHTML = HTML;
 }
 
 function taskID(task) {
