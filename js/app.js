@@ -1,6 +1,6 @@
 const taskText = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
-const tasks = [];
+let tasks = [];
 const tasksLeftUI = document.getElementById("taskCount");
 
 function newID() {
@@ -54,7 +54,7 @@ function buildTaskList(tasksArr) {
 }
 
 function taskID(task) {
-  return task.parentElement.parentElement.id;
+  return task.closest(".task").id;
 }
 
 function taskArrPosition(taskId) {
@@ -88,11 +88,8 @@ function showAll() {
 }
 
 function clearCompleted() {
-  for (let i = 0; i < tasks.length; i++ ) {
-    if (tasks[i].completed === true) {
-      tasks.splice(i, 1);
-    }
-  }
+  tasks = tasks.filter((task) => !task.completed);
+
   updateLocalStorage();
   buildTaskList(tasks);
 }
