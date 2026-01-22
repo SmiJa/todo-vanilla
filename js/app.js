@@ -4,7 +4,7 @@ const tasks = [];
 const tasksLeftUI = document.getElementById("taskCount");
 
 function newID() {
-  return Date.now() + Math.random();
+  return self.crypto.randomUUID();
 }
 
 function clearText() {

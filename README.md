@@ -11,5 +11,5 @@ The Todo app is a great way for a user to keep track of their daily tasks.
 
 ## Coming Updates
 - Refactor BuildTaskList function
-- Update newID function with WebAPI crypto support
+- Update newID function with WebAPI crypto support -- Completed
 - Refactor celarCompleted function
