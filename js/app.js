@@ -116,7 +116,7 @@ function completeTask(task) {
 
 function addTask() {
   const taskId = newID();
-  const taskValue = taskText.value;
+  const taskValue = taskText.value.trim();
 
   let task = {
     id: taskId,
