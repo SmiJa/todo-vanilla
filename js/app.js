@@ -2,6 +2,9 @@ const taskText = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 let tasks = [];
 const tasksLeftUI = document.getElementById("taskCount");
+const modalWrap = document.getElementById("modalWrap");
+const modalMessage = document.getElementById("modalMessage");
+const modalBtn = document.getElementById("modalBtn");
 
 function newID() {
   return self.crypto.randomUUID();
@@ -114,9 +117,25 @@ function completeTask(task) {
   }
 }
 
+function closeModal(){
+  modalWrap.classList.add("hidden");
+}
+
+modalBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  closeModal();
+})
+
 function addTask() {
   const taskId = newID();
   const taskValue = taskText.value.trim();
+
+  if (taskValue === "") {
+    // alert("Input is empty!");
+    modalWrap.classList.remove("hidden");
+    modalMessage.innerText = "The input was empty.";
+    return;
+  }
 
   let task = {
     id: taskId,
@@ -132,7 +151,7 @@ function addTask() {
 }
 
 taskText.addEventListener("keypress", (e) => {
-  e.preventDefault;
+  e.preventDefault();
 
   if (e.key === "Enter") {
     addTask();
